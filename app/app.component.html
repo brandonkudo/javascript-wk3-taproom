@@ -2,13 +2,13 @@
   <h1 class="title">beerstorr</h1>
   <div class="card" *ngFor="let currentKeg of kegs">
     <div class="card-top">
-      <p [class]="priceColor(currentKeg.price)">Price: {{currentKeg.price}}</p>
+      <p [class]="priceColor(currentKeg.price)">${{currentKeg.price}}</p>
       <h3>{{currentKeg.name}}</h3>
       <p>Pints: {{currentKeg.pints}}</p>
     </div>
     <div class="card-bottom">
       <div class="card-bottom-left">
-        <p [class]="abvColor(currentKeg.alcoholContent)">Alcohol Content: {{currentKeg.alcoholContent}}</p>
+        <p [class]="abvColor(currentKeg.alcoholContent)">ABV: {{currentKeg.alcoholContent}}%</p>
         <p>Type: {{currentKeg.type}}</p>
       </div>
       <div class="buttons">
@@ -29,7 +29,7 @@
     <input [(ngModel)]="selectedKeg.alcoholContent">
     <button (click)="nullEdit()">Close</button>
   </div>
-  <button (click)="addNewKegForm(clickedKeg)">Add Keg</button>
+  <button id="addKegButton" (click)="addNewKegForm(clickedKeg)">Add Keg</button>
   <div *ngIf="showKegForm">
     <p>New Keg</p>
     <form>
