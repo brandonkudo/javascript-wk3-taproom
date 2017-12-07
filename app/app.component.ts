@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Keg } from './keg.model';
 
 @Component({
   selector: 'app-root',
@@ -12,33 +13,39 @@ export class AppComponent {
   public price: number
   public alcoholContent: number
   public pints: number
-  public kegs: Keg[] = [
+
+  public masterBeerList: Keg[] = [
     new Keg('RPM','IPA', 5, 6.5,124),
     new Keg('PBR', 'Lager', 2, 4.7,124),
     new Keg('Lagunitas', 'IPA', 6, 6.2,124)
   ];
+
+
   showKegForm = null;
   selectedKeg = null;
 
-  addNewKegForm(clickedKeg){
+  addNewKegForm(kegToEdit){
     this.showKegForm = !null;
+    console.log("Mariah Carey")
   }
 
   nullKegForm() {
     this.showKegForm = null;
+    console.log("All I want for Christmas is You")
   }
 
-  editKeg(clickedKeg) {
+  editKeg(kegToEdit) {
     console.log("hello")
-    this.selectedKeg = clickedKeg;
+    this.selectedKeg = kegToEdit;
   }
 
   nullEdit() {
     this.selectedKeg = null;
+    console.log("Kelly Clarkson")
   }
 
-  addKeg(){
-    this.kegs.push(new Keg(this.name, this.type, this.price, this.alcoholContent, this.pints));
+  addKeg(newKegFromChild: Keg){
+    this.masterBeerList.push(newKegFromChild);
   }
 
   clearInput() {
@@ -48,56 +55,5 @@ export class AppComponent {
     this.pints = null;
   }
 
-  priceColor(currentPrice) {
-    if (currentPrice > 5) {
-      return "bg-danger";
-    } else if (currentPrice > 3) {
-      return "bg-warning";
-    } else {
-      return "bg-info";
-    }
-  }
 
-  abvColor(strength) {
-    if (strength > 6) {
-      return "bg-danger"
-    } else if (strength > 5) {
-      return "bg-warning"
-    } else {
-      return "bg-success"
-    }
-  }
-}
-
-export class Keg {
-  constructor(public name: string, public type: string, public price: number, public alcoholContent: number, public pints: number = 124) {
-
-  }
-
-  sellPint() {
-    if (this.pints > 10) {
-      this.pints --;
-    } else {
-      alert("You need more beer");
-      this.pints --;
-    }
-  }
-
-  sellGrowler() {
-    if (this.pints > 10) {
-      this.pints -= 2;
-    } else {
-      alert("You need more beer");
-      this.pints -= 2;
-    }
-  }
-
-  sellLarge() {
-    if (this.pints > 10) {
-      this.pints -= 4;
-    } else {
-      alert("You need more beer");
-      this.pints -= 4;
-    }
-  }
 }

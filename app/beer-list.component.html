@@ -1,0 +1,27 @@
+
+<select (change)="onChange($event.target.value)">
+  <option value="unsorted" selected="selected">Unsorted</option>
+  <option value="sorted">Price High to Low</option>
+</select>
+<div class="card" *ngFor="let currentKeg of childBeerList | completeness:filterByCompleteness">
+  <div class="card-top">
+    <p>${{currentKeg.price}}</p>
+    <!-- <p [class]="priceColor(currentKeg.price)">${{currentKeg.price}}</p> -->
+    <h3>{{currentKeg.name}}</h3>
+    <p>Pints: {{currentKeg.pints}}</p>
+  </div>
+  <div class="card-bottom">
+    <div class="card-bottom-left">
+      <p>ABV: {{currentKeg.alcoholContent}}%</p>
+      <!-- <p [class]="abvColor(currentKeg.alcoholContent)">ABV: {{currentKeg.alcoholContent}}%</p> -->
+
+      <p>Type: {{currentKeg.type}}</p>
+    </div>
+    <div class="buttons">
+      <button (click)="editButtonHasBeenClicked(currentKeg)">Edit Keg</button>
+      <button (click)="currentKeg.sellPint()">Pint</button>
+      <button (click)="currentKeg.sellGrowler()">Growler</button>
+      <button (click)="currentKeg.sellLarge()">Large Growler</button>
+    </div>
+  </div>
+</div>

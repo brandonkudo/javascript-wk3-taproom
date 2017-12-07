@@ -1,45 +1,7 @@
 <div class="container">
   <h1 class="title">beerstorr</h1>
-  <div class="card" *ngFor="let currentKeg of kegs">
-    <div class="card-top">
-      <p [class]="priceColor(currentKeg.price)">${{currentKeg.price}}</p>
-      <h3>{{currentKeg.name}}</h3>
-      <p>Pints: {{currentKeg.pints}}</p>
-    </div>
-    <div class="card-bottom">
-      <div class="card-bottom-left">
-        <p [class]="abvColor(currentKeg.alcoholContent)">ABV: {{currentKeg.alcoholContent}}%</p>
-        <p>Type: {{currentKeg.type}}</p>
-      </div>
-      <div class="buttons">
-        <button (click)="editKeg(currentKeg)">Edit Keg</button>
-        <button (click)="currentKeg.sellPint()">Pint</button>
-        <button (click)="currentKeg.sellGrowler()">Growler</button>
-        <button (click)="currentKeg.sellLarge()">Large Growler</button>
-      </div>
-    </div>
-  </div>
-
-  <div *ngIf="selectedKeg">
-    <h3>{{selectedKeg.name}}</h3>
-    <p>We Did It Edit</p>
-    <input [(ngModel)]="selectedKeg.name">
-    <input [(ngModel)]="selectedKeg.type">
-    <input [(ngModel)]="selectedKeg.price">
-    <input [(ngModel)]="selectedKeg.alcoholContent">
-    <button (click)="nullEdit()">Close</button>
-  </div>
-  <button id="addKegButton" (click)="addNewKegForm(clickedKeg)">Add Keg</button>
-  <div *ngIf="showKegForm">
-    <p>New Keg</p>
-    <form>
-      <input type="text" [(ngModel)]="name" name="name" placeholder="name">
-      <input type="text" [(ngModel)]="type" name="type" placeholder="type">
-      <input type="number" [(ngModel)]="price" name="price" placeholder="price">
-      <input type="number" [(ngModel)]="alcoholContent" name="alcoholContent" placeholder="alcoholContent">
-      <button (click)="addKeg(); clearInput(); nullKegForm()">Add Keg</button>
-      <button (click)="nullKegForm()">Close</button>
-    </form>
-
-  </div>
+  <beer-list [childBeerList]="masterBeerList" (clickSender)="editKeg($event)"></beer-list>
+  <edit-keg [childSelectedKeg]="selectedKeg" (closeButtonClickedSender)="nullEdit()"></edit-keg>
+  <button id="addKegButton" (click)="addNewKegForm(kegToEdit)">Add Keg</button>
+  <new-keg [childShowKegForm]="showKegForm" (newKegSender)="addKeg($event)" (exitNewKegFormClickedSender)="nullKegForm()"></new-keg>
 </div>
