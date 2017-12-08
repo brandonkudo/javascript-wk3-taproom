@@ -1,4 +1,95 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed");
+#edit-card {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.edit-card {
+  width: 500px;
+  height: 400px;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: white; }
+  .edit-card label {
+    font-size: 25px;
+    margin: 5px;
+    text-transform: uppercase; }
+  .edit-card input {
+    background-color: #000;
+    color: #fff;
+    width: 300px;
+    height: 40px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid white; }
+  .edit-card p {
+    text-transform: uppercase;
+    color: #bcbaba;
+    transition: transform 1s; }
+    .edit-card p:hover {
+      cursor: pointer;
+      color: white;
+      transform: scale(1.25); }
+
+#add-keg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.add-keg {
+  width: 500px;
+  height: 400px;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: white; }
+  .add-keg form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .add-keg label {
+    font-size: 25px;
+    margin: 5px;
+    text-transform: uppercase; }
+  .add-keg input {
+    background-color: #000;
+    color: #fff;
+    width: 300px;
+    height: 40px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid white; }
+  .add-keg p {
+    text-transform: uppercase;
+    color: #bcbaba;
+    transition: transform 1s;
+    margin-bottom: 5px; }
+    .add-keg p:hover {
+      cursor: pointer;
+      color: white;
+      transform: scale(1.25); }
+
 * {
   padding: 0;
   margin: 0;
@@ -15,7 +106,9 @@ body {
   align-items: center; }
 
 .title {
-  font-size: 200px; }
+  font-size: 200px;
+  color: white;
+  text-shadow: 4px 4px 50px black; }
 
 .card {
   display: flex;
@@ -24,8 +117,7 @@ body {
   height: 150px;
   margin-bottom: 40px;
   width: 1200px;
-  border-radius: 5px;
-  border: 2px solid #bcbaba; }
+  border-radius: 5px; }
 
 .card-top {
   width: 100%;
@@ -33,8 +125,8 @@ body {
   align-items: center;
   height: 70%;
   background-color: rgba(0, 0, 0, 0.7);
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px; }
+  border-radius: 5px;
+  border: 2px solid #bcbaba; }
   .card-top h3 {
     font-size: 50px;
     color: #bcbaba;
@@ -42,32 +134,84 @@ body {
   .card-top * {
     width: 33.333%;
     text-align: center; }
+  .card-top p {
+    color: white;
+    font-size: 30px; }
+  .card-top .img {
+    width: 0px;
+    position: relative; }
+    .card-top .img img {
+      width: 25px;
+      height: 25px;
+      filter: invert(1);
+      position: absolute;
+      top: -45px;
+      right: 5;
+      margin: 5px; }
+      .card-top .img img:hover {
+        cursor: pointer;
+        width: 35px;
+        height: 35px; }
 
 .card-bottom {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  background-color: #303030;
+  justify-content: space-around;
+  align-items: center;
+  background-image: linear-gradient(to bottom, #404040, #303030, #303030, #303030, #303030, #404040);
   color: #bcbaba;
   height: 30%;
   border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px; }
+  border-bottom-right-radius: 5px;
+  border: 1px solid black;
+  border-top: 0; }
 
 .card-bottom-left {
   display: flex;
   width: 50%;
   justify-content: space-around;
-  align-items: flex-end; }
+  align-items: center; }
+
+#pints {
+  font-size: 20px; }
 
 .buttons {
-  display: flex;
-  width: 50%;
-  justify-content: flex-end; }
+  background-color: blue;
+  position: relative;
+  margin-right: 50px; }
+  .buttons img {
+    position: absolute;
+    top: -25px;
+    width: 50px;
+    height: 50px;
+    filter: invert(1);
+    transition: transform 1s; }
+    .buttons img:hover {
+      cursor: pointer;
+      transform: scale(1.5); }
+      .buttons img:hover:active {
+        transform: scale(1); }
+    .buttons img:nth-child(1) {
+      left: 50px; }
+    .buttons img:nth-child(2) {
+      left: 150px; }
+    .buttons img:nth-child(3) {
+      left: 250px; }
 
 #addKegButton {
   padding: 15px;
   background-color: rgba(0, 0, 0, 0.7);
   text-transform: uppercase;
   color: white; }
+
+select {
+  margin-bottom: 15px;
+  margin-left: 87%;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 1px solid #bcbaba;
+  color: #bcbaba;
+  width: 150px;
+  height: 35px;
+  font-size: 14px; }
 
 /*# sourceMappingURL=master.css.map */

@@ -1,9 +1,13 @@
-<div *ngIf="childSelectedKeg">
-  <h3>{{childSelectedKeg.name}}</h3>
-  <p>We Did It Edit</p>
-  <input [(ngModel)]="childSelectedKeg.name">
-  <input [(ngModel)]="childSelectedKeg.type">
-  <input [(ngModel)]="childSelectedKeg.price">
-  <input [(ngModel)]="childSelectedKeg.alcoholContent">
-  <button (click)="closeButtonClicked()">Close</button>
+<div id="edit-card" *ngIf="childSelectedKeg">
+  <div class="edit-card">
+    <label>{{childSelectedKeg.name}}</label>
+    <input [(ngModel)]="childSelectedKeg.name">
+    <label>Change Type: {{childSelectedKeg.type}}</label>
+    <input [(ngModel)]="childSelectedKeg.type">
+    <label>Change Price: {{childSelectedKeg.price}}</label>
+    <input [(ngModel)]="childSelectedKeg.price">
+    <label>Change ABV: {{childSelectedKeg.alcoholContent}}</label>
+    <input [(ngModel)]="childSelectedKeg.alcoholContent">
+    <p (click)="closeButtonClicked()">Keep Changes</p>
+  </div>
 </div>

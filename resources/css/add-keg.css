@@ -1,0 +1,49 @@
+#add-keg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.add-keg {
+  width: 500px;
+  height: 400px;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  color: white; }
+  .add-keg form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .add-keg label {
+    font-size: 25px;
+    margin: 5px;
+    text-transform: uppercase; }
+  .add-keg input {
+    background-color: #000;
+    color: #fff;
+    width: 300px;
+    height: 40px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid white; }
+  .add-keg p {
+    text-transform: uppercase;
+    color: #bcbaba;
+    transition: transform 1s;
+    margin-bottom: 5px; }
+    .add-keg p:hover {
+      cursor: pointer;
+      color: white;
+      transform: scale(1.25); }
+
+/*# sourceMappingURL=add-keg.css.map */

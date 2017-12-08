@@ -1,14 +1,22 @@
 
 <select (change)="onChange($event.target.value)">
-  <option value="unsorted" selected="selected">Unsorted</option>
-  <option value="sorted">Price High to Low</option>
+  <option value="lowToHigh" selected="selected">Prices Low to High</option>
+  <option value="highToLow">Price High to Low</option>
+  <option value="abvHighToLow">ABV High to Low</option>
+  <option value="abvLowToHigh">ABV Low to High</option>
 </select>
 <div class="card" *ngFor="let currentKeg of childBeerList | completeness:filterByCompleteness">
   <div class="card-top">
     <p>${{currentKeg.price}}</p>
-    <!-- <p [class]="priceColor(currentKeg.price)">${{currentKeg.price}}</p> -->
     <h3>{{currentKeg.name}}</h3>
-    <p>Pints: {{currentKeg.pints}}</p>
+    <div class="buttons">
+      <img src="../resources/img/pint.png" (click)="currentKeg.sellPint()">
+      <img src="../resources/img/growlette.png"  (click)="currentKeg.sellGrowler()">
+      <img src="../resources/img/growler.png" (click)="currentKeg.sellLarge()">
+    </div>
+    <div class="img">
+      <img src="../resources/img/pencil.png" (click)="editButtonHasBeenClicked(currentKeg)">
+    </div>
   </div>
   <div class="card-bottom">
     <div class="card-bottom-left">
@@ -17,11 +25,7 @@
 
       <p>Type: {{currentKeg.type}}</p>
     </div>
-    <div class="buttons">
-      <button (click)="editButtonHasBeenClicked(currentKeg)">Edit Keg</button>
-      <button (click)="currentKeg.sellPint()">Pint</button>
-      <button (click)="currentKeg.sellGrowler()">Growler</button>
-      <button (click)="currentKeg.sellLarge()">Large Growler</button>
-    </div>
+    <p id="pints">Pints: {{currentKeg.pints}}</p>
+
   </div>
 </div>

@@ -10,13 +10,14 @@ import { Keg } from './keg.model';
 export class BeerListComponent {
   @Input() childBeerList: Keg[];
   @Output() clickSender = new EventEmitter();
-  filterByCompleteness: string = "sorted"
+  filterByCompleteness: string = "lowToHigh";
 
   editButtonHasBeenClicked(kegToEdit: Keg) {
     this.clickSender.emit(kegToEdit);
   }
 
   onChange(optionFromMenu) {
+    console.log(optionFromMenu);
     this.filterByCompleteness = optionFromMenu;
   }
 

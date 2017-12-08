@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="title">beerstorr</h1>
+  <button id="addKegButton" (click)="addNewKegForm(kegToEdit)">Add Keg</button>
   <beer-list [childBeerList]="masterBeerList" (clickSender)="editKeg($event)"></beer-list>
   <edit-keg [childSelectedKeg]="selectedKeg" (closeButtonClickedSender)="nullEdit()"></edit-keg>
-  <button id="addKegButton" (click)="addNewKegForm(kegToEdit)">Add Keg</button>
   <new-keg [childShowKegForm]="showKegForm" (newKegSender)="addKeg($event)" (exitNewKegFormClickedSender)="nullKegForm()"></new-keg>
 </div>

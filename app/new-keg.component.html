@@ -1,13 +1,15 @@
-<div *ngIf="childShowKegForm">
-  <p>New Keg</p>
-  <form>
-    <input type="text" #newName placeholder="name">
-    <input type="text" #newType placeholder="type">
-    <input type="number" #newPrice placeholder="price">
-    <input type="number" #newAlcoholContent placeholder="alcoholContent">
-    <button (click)="submitForm(newName.value, newType.value, newPrice.value, newAlcoholContent.value)" (click)="exitNewKegFormClicked()">Submit Keg</button>
-    <button (click)="exitNewKegFormClicked()">Close</button>
-  </form>
+<div id="add-keg"*ngIf="childShowKegForm">
+  <div class="add-keg">
+    <label>New Keg</label>
+    <form>
+      <input type="text" #newName placeholder="Name">
+      <input type="text" #newType placeholder="Type">
+      <input type="number" #newPrice placeholder="Price">
+      <input type="number" #newAlcoholContent placeholder="ABV">
+      <p (click)="submitForm(newName.value, newType.value, newPrice.value, newAlcoholContent.value)" (click)="exitNewKegFormClicked()">Submit Keg</p>
+      <p (click)="exitNewKegFormClicked()">Close</p>
+    </form>
+  </div>
 </div>
 
 <!-- <div *ngIf="showKegForm">

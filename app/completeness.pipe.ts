@@ -9,13 +9,18 @@ import {Keg} from './keg.model';
 
 export class CompletenessPipe implements PipeTransform {
   transform(input: Keg[], desiredSort){
-    var output: Keg[] = input.sort();
-    if (desiredSort === "sorted"){
+    var output: Keg[] = input;
+    if (desiredSort === "highToLow"){
       input.sort(function(a: Keg, b: Keg){return b.price-a.price})
-      console.log("Santa Baby")
       return output;
-    } else if(desiredSort ==="unsorted") {
-      console.log("Christmas Tree")
+    } else if(desiredSort === "lowToHigh") {
+      input.sort(function(a: Keg, b: Keg){return a.price-b.price})
+      return output;
+    } else if(desiredSort === "abvHighToLow") {
+      input.sort(function(a: Keg, b: Keg){return b.alcoholContent-a.alcoholContent})
+      return output;
+    } else if(desiredSort === "abvLowToHigh") {
+      input.sort(function(a: Keg, b: Keg){return a.alcoholContent-b.alcoholContent})
       return output;
     }
 
