@@ -203,6 +203,10 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   text-transform: uppercase;
   color: white; }
+  #addKegButton:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black; }
 
 select {
   margin-bottom: 15px;
@@ -213,5 +217,7 @@ select {
   width: 150px;
   height: 35px;
   font-size: 14px; }
+  select:hover {
+    cursor: pointer; }
 
 /*# sourceMappingURL=master.css.map */
